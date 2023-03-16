@@ -1,0 +1,25 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: non-wrap;
+  justify-content: space-between;
+}
+
+.img-container {
+  margin: auto;
+  width: 350px;
+  height: 350px;
+}
+
+.img-container img {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+}
