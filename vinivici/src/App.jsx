@@ -4,51 +4,20 @@ import Cat from './components/Cat';
 import axios, * as others from 'axios';
 import Gallery from './components/Gallery';
 import BanList from './components/BanList';
-// const API_KEY = import.meta.env.VITE_API_KEY;
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 function App() {
-  const breedsURL = 'https://api.thecatapi.com/v1/breeds';
-  const [breeds, setBreeds] = useState('');
-  const [cats, setCats] = useState('');
-  const [breid, setBreid] = useState('');
   const [cat, setCat] = useState('');
+  const [cats, setCats] = useState([]);
 
-  
-  // fetch breed id
-  const fetchData = async() => {
-    try {
-      const bre =  await axios.get(breedsURL);
-      const rand = Math.floor(Math.random()*bre.data.length);
-      setBreeds(bre.data[rand]);
-      // console.log(breeds);
-      setBreid(breeds.id);
-      // console.log(breid);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  // fetch cats under the breed id
-  const fetchCats = async() => {
-    try {
-      fetchData();
-      const NEW_URL = `https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=${breid}`;
-      const res = await axios.get(NEW_URL);
-      setCats(res.data);
-      // console.log(cats);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  // looking for the details of the cat of the specified id
   const makeQuery = async() => {
       try {
-        fetchCats();
-        const CAT_URL = `https://api.thecatapi.com/v1/images/${cats[0].id}`;
-        const res = await axios.get(CAT_URL);
-        setCat(res.data);
+        let query = `https://api.thecatapi.com/v1/images/search?limit=10&api_key=${API_KEY}&has_breeds=${true}`;
+        let res = await axios.get(query);
+        setCat(res.data[0]);
         console.log(cat);
+        setCats((c)=>[...c, cat]);
+        console.log(cats);
       } catch (error) {
         console.log(error);
       }
@@ -61,15 +30,15 @@ function App() {
   return (
     <div className="container">
       <div className=''>
-        <Gallery cat={cat} />
+        <Gallery cat={cats} />
       </div>
 
       <div className='cat-container'>
-        <Cat cat={cat} handleClick={handleClick}  /> 
+        <Cat key={cat.id} cat={cat} handleClick={handleClick} /> 
       </div>
 
       <div className=''>
-        <BanList cat={cat} />
+        <BanList />
       </div>
 
     </div>
