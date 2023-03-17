@@ -1,0 +1,25 @@
+.button-container {
+    
+}
+
+.btn {
+    margin: 0 5px;
+}
+
+.img-container {
+    margin: auto;
+    width: 300px;
+    height: 300px;
+  }
+  
+.img-container img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+  }
+
+  button {
+    min-width: 100px;
+    padding: 8px 12px;
+    border-radius: 8px;
+  }

@@ -12,14 +12,3 @@
   justify-content: space-between;
 }
 
-.img-container {
-  margin: auto;
-  width: 350px;
-  height: 350px;
-}
-
-.img-container img {
-  width: 350px;
-  height: 350px;
-  object-fit: cover;
-}
