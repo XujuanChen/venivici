@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Banbtn = ({handleRemove}) => {
+const Banbtn = ({index, banlist, handleRemove }) => {
   return (
-    <div>
-        <button onClick={()=>handleRemove()}>{btn}</button>
-    </div>
+    <li style={{listStyleType:'none'}}>
+        <button key={index} onClick={()=>handleRemove(index)}>{ banlist[index] }</button>
+    </li>
   )
 }
 

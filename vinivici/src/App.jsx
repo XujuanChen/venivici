@@ -17,20 +17,32 @@ function App() {
         let res = await axios.get(query);
 
         if ( res.data[0] == null ) {
-          alert("Oops! Something went wrong with that query, let's try again!");
-        } else {
+            alert('Oops! Something went wrong, please try again.');
+        } else if (
+          !banlist.includes(res.data[0].breeds[0].name)  &&
+          !banlist.includes(res.data[0].breeds[0].origin)  &&
+          !banlist.includes(res.data[0].breeds[0].weight.imperial) &&
+          !banlist.includes(res.data[0].breeds[0].life_span)
+          ) {
           setCurrCat(res.data[0]);
           setPreCats((images)=>[...images, res.data[0]]);
           console.log(preCats);
         }
-
       } catch (error) {
         console.log(error);
       }
+
     }
 
     const handleClick = () => {
           makeQuery();
+    }
+
+    const handleRemove = (index) => {
+      let newList = banlist.filter((item)=>{
+        item.index != index;
+      })
+      setBanlist(newList);
     }
 
   return (
@@ -44,7 +56,7 @@ function App() {
       </div>
 
       <div className='banlist-container'>
-        <BanList banlist = { banlist } setBanlist = { setBanlist } />
+        <BanList banlist = { banlist } handleRemove = { handleRemove } />
       </div>
 
     </div>

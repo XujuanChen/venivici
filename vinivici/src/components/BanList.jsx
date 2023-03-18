@@ -1,13 +1,7 @@
 import React, {useState} from 'react'
-import { v1 as uuidv1 } from 'uuid';
+// import Banbtn from './Banbtn'
 
-
-const BanList = ({ banlist, setBanlist }) => {
-
-  const handleRemove = () => {
-    let newlist = banlist.filter(btn => btn.index != index)
-    setBanlist(newlist)
-  }
+const BanList = ({ banlist, handleRemove }) => {
 
   return (
     <div>        
@@ -16,9 +10,10 @@ const BanList = ({ banlist, setBanlist }) => {
       {
         banlist && banlist.length > 0 ? (
           banlist.map(( btn, index )=>
-          <li style={{listStyleType:'none'}}>
-            <button key={index} onClick={handleRemove}>{ btn }</button>
+          <li key={btn.index} style={{listStyleType:'none'}}>
+            <button {...btn} onClick={()=>handleRemove(index)}>{ btn }</button>
           </li>
+        //   <Banbtn key={btn.index} {...btn} handleRemove={handleRemove} />
         ) ) : (
           <p>no button</p>
         )
