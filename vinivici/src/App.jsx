@@ -9,6 +9,7 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 function App() {
   const [currCat, setCurrCat] = useState('');
   const [preCats, setPreCats] = useState([]);
+  const [banlist, setBanlist] = useState([]);
 
   const makeQuery = async() => {
       try {
@@ -39,11 +40,11 @@ function App() {
       </div>
 
       <div className='cat-container'>
-        <Cat currCat={ currCat } handleClick={ handleClick } /> 
+        <Cat key={ currCat.id } currCat={ currCat } setBanlist = { setBanlist } handleClick={ handleClick } /> 
       </div>
 
       <div className=''>
-        <BanList />
+        <BanList key={ currCat.id } currCat={ currCat } banlist = { banlist }/>
       </div>
 
     </div>
