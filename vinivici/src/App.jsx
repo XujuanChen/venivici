@@ -7,17 +7,22 @@ import BanList from './components/BanList';
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 function App() {
-  const [cat, setCat] = useState('');
-  const [cats, setCats] = useState([]);
+  const [currCat, setCurrCat] = useState('');
+  const [preCats, setPreCats] = useState([]);
 
   const makeQuery = async() => {
       try {
         let query = `https://api.thecatapi.com/v1/images/search?limit=10&api_key=${API_KEY}&has_breeds=${true}`;
         let res = await axios.get(query);
-        setCat(res.data[0]);
-        console.log(cat);
-        setCats((c)=>[...c, cat]);
-        console.log(cats);
+
+        if ( res.data[0] == null ) {
+          alert("Oops! Something went wrong with that query, let's try again!");
+        } else {
+          setCurrCat(res.data[0]);
+          setPreCats((images)=>[...images, res.data[0]]);
+          console.log(preCats);
+        }
+
       } catch (error) {
         console.log(error);
       }
@@ -30,11 +35,11 @@ function App() {
   return (
     <div className="container">
       <div className=''>
-        <Gallery cat={cats} />
+        <Gallery preCats={ preCats } />
       </div>
 
       <div className='cat-container'>
-        <Cat key={cat.id} cat={cat} handleClick={handleClick} /> 
+        <Cat currCat={ currCat } handleClick={ handleClick } /> 
       </div>
 
       <div className=''>

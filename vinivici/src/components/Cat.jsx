@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./Cat.css";
 
-const Cat = ({ cat, handleClick }) => {
-    const { id, breeds, url } = cat;
+const Cat = ({ currCat, handleClick }) => {
+    const { id, breeds, url } = currCat;
   return (
     <div key={id}>
       <h1>Trippin' on Cats</h1>
