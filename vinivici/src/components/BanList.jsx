@@ -1,21 +1,26 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { v1 as uuidv1 } from 'uuid';
 
-const BanList = ({ currCat, banlist }) => {
-  const { id, breeds, url } = currCat;
+
+const BanList = ({ banlist, setBanlist }) => {
+
+  const handleRemove = () => {
+    let newlist = banlist.filter(btn => btn.index != index)
+    setBanlist(newlist)
+  }
 
   return (
-    <div key={id}>        
+    <div>        
       <h2>Ban List</h2>
       <h3>Select an attribute in your listing to ban it</h3>
       {
         banlist && banlist.length > 0 ? (
-          banlist.map(( btn )=>(
-            <li style={{listStyleType: "none", marginBottom:"10px"}} >
-              <button> { btn } </button>
-            </li>
-          ))
-        ) : (
-          <p>no image</p>
+          banlist.map(( btn, index )=>
+          <li style={{listStyleType:'none'}}>
+            <button key={index} onClick={handleRemove}>{ btn }</button>
+          </li>
+        ) ) : (
+          <p>no button</p>
         )
       }
     </div>

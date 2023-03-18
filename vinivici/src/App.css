@@ -13,3 +13,13 @@
   gap: 1rem;
 }
 
+.gallery-container {
+  min-height: 90vh;
+  overflow: scroll;
+}
+
+.banlist-container {
+  min-height: 90vh;
+  overflow: scroll;
+  direction: rtl;
+}

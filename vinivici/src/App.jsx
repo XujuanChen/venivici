@@ -35,7 +35,7 @@ function App() {
 
   return (
     <div className="container">
-      <div className=''>
+      <div className='gallery-container'>
         <Gallery preCats={ preCats } />
       </div>
 
@@ -43,8 +43,8 @@ function App() {
         <Cat key={ currCat.id } currCat={ currCat } setBanlist = { setBanlist } handleClick={ handleClick } /> 
       </div>
 
-      <div className=''>
-        <BanList key={ currCat.id } currCat={ currCat } banlist = { banlist }/>
+      <div className='banlist-container'>
+        <BanList banlist = { banlist } setBanlist = { setBanlist } />
       </div>
 
     </div>
