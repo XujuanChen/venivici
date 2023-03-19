@@ -16,7 +16,7 @@ The following **required** functionality is completed:
 - [x] **API calls appear random to the user**
 - [x] **At least one image is displayed per API call**
 - [x] **Clicking on a displayed value for one attribute adds it to a displayed ban list**
-- [ ] **Attributes on the ban list prevent further images/API results with that attribute from being displayed**
+- [x] **Attributes on the ban list prevent further images/API results with that attribute from being displayed**
 
 The following **optional** features are implemented:
 

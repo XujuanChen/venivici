@@ -1,45 +1,50 @@
 .btn {
-    margin: 0 5px;
+    margin: 0 2px;
 }
 
 .img-container {
     margin: auto;
     width: 300px;
     height: 300px;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   }
   
 .img-container img {
     width: 300px;
     height: 300px;
     object-fit: cover;
+    border-radius: 8px;
   }
 
   button {
     min-width: 100px;
     padding: 10px 16px;
     border-radius: 8px;
-    background-color:antiquewhite;
-    color:navy;
+    background-color:#F2F2F2;
+    color:black;
     font-weight: bolder;
-    border-color: navy;
+    font-size: 14px;
     transition: all linear 0.3s;
+    border: 3px solid cornflowerblue;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -20px inset;
   }
 
   .discover-btn {
-    color: white;
+    color: #F2F2F2;
     background-color: cornflowerblue;
-    border: 2px solid white;
+    border: 2px solid #F2F2F2;
   }
 
   button:hover{
-    color: white;
+    color: #F2F2F2;
     background-color: cornflowerblue;
-    border: 2px solid white;
+    border: 2px solid #F2F2F2;
   }
 
   .discover-btn:hover {
-    background-color:white;
-    color: navy;
+    background-color:#F2F2F2;
+    color: black;
     font-weight: bolder;
-    border-color: navy;
+    border-color: cornflowerblue;
   }

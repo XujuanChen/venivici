@@ -1,20 +1,18 @@
-import React, {useState} from 'react'
-// import Banbtn from './Banbtn'
+import React from 'react'
 
 const BanList = ({ banlist, handleRemove }) => {
-
+  console.log(`banlist: ${banlist}`);
   return (
     <div>        
       <h2>Ban List</h2>
       <h3>Select an attribute in your listing to ban it</h3>
       {
         banlist && banlist.length > 0 ? (
-          banlist.map(( btn, index )=>
-          <li key={btn.index} style={{listStyleType:'none'}}>
-            <button {...btn} onClick={()=>handleRemove(index)}>{ btn }</button>
-          </li>
-        //   <Banbtn key={btn.index} {...btn} handleRemove={handleRemove} />
-        ) ) : (
+          banlist.map(( b )=> {
+          return (<li key={b} style={{listStyleType:'none', margin: "5px 0"}}>
+                    <button onClick={()=>handleRemove(b.index)}>{ b }</button>
+                  </li>)
+        }) ) : (
           <p>no button</p>
         )
       }
