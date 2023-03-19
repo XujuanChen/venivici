@@ -62,11 +62,21 @@ function App() {
           makeQuery();
     }
 
-    const handleRemove = (index) => {
-      let newList = banlist.filter((item)=>{
-        item.index != index;
-      })
-      setBanlist(newList);
+    const handleRemove = ( btn ) => {
+      setBanlist(
+        prev => {
+          const newList = [...prev];
+          let i = 0;
+          while (i < newList.length) {
+            if (newList[i] == btn) {
+              newList.splice(i, 1);
+            } else {
+              i++;
+            }
+          }
+          return newList;
+        }
+      );
     }
 
   return (
