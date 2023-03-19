@@ -1,7 +1,7 @@
 import React from 'react';
 
 const BanList = ({ banlist, handleRemove }) => {
-  // console.log(`banlist: ${banlist}`);
+  console.log(`banlist: ${banlist}`);
   return (
     <div>        
       <h2>Ban List</h2>

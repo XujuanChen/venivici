@@ -26,12 +26,13 @@ function App() {
           // console.log(breed);
           const currCat = {
             id: data.id,
+            name: data.breeds[0].id,
             image: data.url,
             breedinfo: [
               breed.name,
               breed.origin,
               breed.weight.imperial + " lbs",
-              breed.life_span + ' years'
+              breed.life_span + " years"
             ]
           }
 
@@ -68,7 +69,7 @@ function App() {
           const newList = [...prev];
           let i = 0;
           while (i < newList.length) {
-            if (newList[i] == btn) {
+            if (newList[i] === btn) {
               newList.splice(i, 1);
             } else {
               i++;

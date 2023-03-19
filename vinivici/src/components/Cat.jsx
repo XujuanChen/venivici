@@ -12,12 +12,13 @@ const Cat = ({ currCat, setBanlist, handleClick}) => {
         currCat &&      
         <div key={currCat.id}>
           <div>
-          <h2> Name {  } </h2> 
+          <h2> { currCat.name } </h2> 
           <div className="button-container">
               {
                 currCat.breedinfo.map(
                   (item) => (
-                    <button className="btn" key={ item } onClick={ () => setBanlist((prev) => [...prev, item]) } >
+                    <button className="btn" key={ item } 
+                      onClick={ () => setBanlist( prev => [...prev, item] ) } > 
                       { item }
                     </button>
                   )
