@@ -3,7 +3,7 @@
 
 Submitted by: **Xujuan Chen**
 
-This web app: **insert description**
+This web app: **This project is exporing cats API and display the info on the web.**
 
 Time spent: **14** hours spent in total
 
