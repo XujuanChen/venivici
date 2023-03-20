@@ -26,7 +26,7 @@ function App() {
           // console.log(breed);
           const currCat = {
             id: data.id,
-            name: data.breeds[0].id,
+            name: breed.id,
             image: data.url,
             breedinfo: [
               breed.name,

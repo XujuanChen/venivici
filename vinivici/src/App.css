@@ -9,6 +9,7 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
+  gap: 1rem;
   justify-content: space-evenly;
 }
 
@@ -26,7 +27,7 @@
   min-height: 90vh;
   background-color: #A0B392;
   overflow: scroll;
-  direction: rtl;
+  /* direction: rtl; */
 }
 
 
