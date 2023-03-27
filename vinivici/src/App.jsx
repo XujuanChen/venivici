@@ -64,20 +64,25 @@ function App() {
     }
 
     const handleRemove = ( btn ) => {
-      setBanlist(
-        prev => {
-          const newList = [...prev];
-          let i = 0;
-          while (i < newList.length) {
-            if (newList[i] === btn) {
-              newList.splice(i, 1);
-            } else {
-              i++;
-            }
-          }
-          return newList;
-        }
-      );
+      const filtered = banlist.filter((prev)=>{
+        return (prev != btn)
+      })
+      setBanlist(filtered);
+
+      // setBanlist(
+      //   prev => {
+      //     const newList = [...prev];
+      //     let i = 0;
+      //     while (i < newList.length) {
+      //       if (newList[i] === btn) {
+      //         newList.splice(i, 1);
+      //       } else {
+      //         i++;
+      //       }
+      //     }
+      //     return newList;
+      //   }
+      // );
     }
 
   return (
